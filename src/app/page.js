@@ -1,6 +1,7 @@
 'use client' //client side rendering
 import { useState } from 'react';
 import styles from './page.module.css'
+import Link from 'next/link';
 export default function Home() {
 
   // function with parameter
@@ -25,10 +26,13 @@ export default function Home() {
       {/* <button onClick={() => apple('jagrati')}>click</button> */}
 
       {/* <InnerComp /> */}
-      {
+      {/* {
         InnerComp() //used as function component
-      }
+      } */}
 
+      {/* <Link href='/login'>
+        go to login page
+      </Link> */}
 
     </main>
   )
