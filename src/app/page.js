@@ -2,8 +2,10 @@
 import { useState } from 'react';
 import styles from './page.module.css'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 export default function Home() {
 
+  const router = useRouter();
   // function with parameter
   // const apple = (name) => {
   //   alert("fruit " + name);
@@ -33,6 +35,8 @@ export default function Home() {
       {/* <Link href='/login'>
         go to login page
       </Link> */}
+
+      {/* <button onClick={() => router.push('/login')}>go</button> */}
 
     </main>
   )
