@@ -1,18 +1,26 @@
 'use client' //client side rendering
+import { useState } from 'react';
 import styles from './page.module.css'
 export default function Home() {
 
   // function with parameter
-  const apple = (name) => {
-    alert("fruit " + name);
-  }
+  // const apple = (name) => {
+  //   alert("fruit " + name);
+  // }
+  // state to change data -->re render data
+  const [name, setName] = useState('jagrati');
 
   return (
     <main className={styles.main}>
       {/* <User name="Jagrati" /> */}
-      <h1>Event, function & state</h1>
+      {/* <h1>Event, function & state</h1> */}
+      {/* <p>{name}</p> */}
+      {/* <button onClick={() => setName('Siddhu')}>change</button> */}
       {/* if we directly called function it used server side rendering */}
       {/* <button onClick={() => apple('jagrati')}>click</button> */}
+
+
+
     </main>
   )
 }
