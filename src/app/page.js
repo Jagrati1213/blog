@@ -3,9 +3,10 @@ import { useState } from 'react';
 import styles from './page.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+// import Product from './productlist/page';
 export default function Home() {
 
-  const router = useRouter();
+  // const router = useRouter();
   // function with parameter
   // const apple = (name) => {
   //   alert("fruit " + name);
@@ -14,12 +15,13 @@ export default function Home() {
   // const [name, setName] = useState('jagrati');
 
   // Inner Component 
-  const InnerComp = () => {
-    return <h1>hii</h1>
-  }
+  // const InnerComp = () => {
+  //   return <h1>hii</h1>
+  // }
 
   return (
     <main className={styles.main}>
+      <h2>Hello</h2>
       {/* <User name="Jagrati" /> */}
       {/* <h1>Event, function & state</h1> */}
       {/* <p>{name}</p> */}
