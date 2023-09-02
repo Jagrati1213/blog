@@ -15,3 +15,15 @@ export async function GET() {
         return NextResponse.json({ result: error, success: false });
     }
 }
+
+
+export async function POST(req) {
+    const payload = await req.json();
+    await mongoose.connect(connectionSrt);
+    let product = new Product(payload);
+    console.log("Payload:", payload);
+
+    const result = await product.save();
+    console.log(result);
+    return NextResponse.json({ result: result, success: true }, { status: 200 });
+}
