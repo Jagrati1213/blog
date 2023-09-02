@@ -19,11 +19,10 @@ export async function GET() {
 
 export async function POST(req) {
     const payload = await req.json();
+    payload.color = payload.color.split(',');
     await mongoose.connect(connectionSrt);
-    let product = new Product(payload);
-    console.log("Payload:", payload);
-
+    const product = new Product(payload);
     const result = await product.save();
-    console.log(result);
-    return NextResponse.json({ result: result, success: true }, { status: 200 });
+    return NextResponse.json({ result, success: true }, { status: 200 });
+
 }
