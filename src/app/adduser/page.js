@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 function AddUser() {
 
-    const [data, setData] = useState({ name: '', email: '' }); //store data
+    const [data, setData] = useState({ name: '', category: '', company: '', price: '', color: [] }); //store data
 
     const handleChange = (event) => {
         let key = event.target.name;
@@ -14,7 +14,7 @@ function AddUser() {
 
     // post the data in database...
     const addUser = async () => {
-        let res = await fetch('http://localhost:3000/api/user', {
+        let res = await fetch('http://localhost:3000/api/products', {
             method: 'POST',
             body: JSON.stringify(data)
         });
@@ -32,7 +32,16 @@ function AddUser() {
             <h2>AddUser</h2>
             <div>
                 <input type="text" placeholder='Enter name' name='name' value={data.name} onChange={(e) => handleChange(e)} />
-                <input type="text" placeholder='Enter email' name='email' value={data.email} onChange={(e) => handleChange(e)} />
+
+                <input type="text" placeholder='Enter category' name='category' value={data.category} onChange={(e) => handleChange(e)} />
+
+                <input type="text" placeholder='Enter company' name='company' value={data.company} onChange={(e) => handleChange(e)} />
+
+                <input type="text" placeholder='Enter price' name='price' value={data.price} onChange={(e) => handleChange(e)} />
+
+                <input type="text" placeholder='Enter color' name='color' value={data.color} onChange={(e) => handleChange(e)} />
+
+
                 <button onClick={addUser}>Add user</button>
             </div>
             <Link href={'/about'}> Back to about</Link>
