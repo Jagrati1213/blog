@@ -6,6 +6,6 @@ const productSchema = new mongoose.Schema({
     category: String,
     color: Array,
     company: String,
-    price: String,
+    price: { type: Number, Int32: true },
 })
 export const Product = mongoose.models.products || mongoose.model("products", productSchema);//table name
