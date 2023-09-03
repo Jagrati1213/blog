@@ -29,7 +29,7 @@ function UpdateUser({ params }) {
 
     useEffect(() => {
         getUserDetails();
-    }, [])
+    }, [id])
 
     // put the data in database...
     const updateUser = async () => {
