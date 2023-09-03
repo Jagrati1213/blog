@@ -14,12 +14,43 @@ export default function Home() {
   // const [name, setName] = useState('jagrati');
 
   // Inner Component 
-  const InnerComp = () => {
-    return <h1>hii</h1>
+  const [file, setFile] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (file) {
+      const formData = new FormData();
+      formData.set('file', file);
+      try {
+        const response = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          console.log('File uploaded successfully');
+        } else {
+          console.error('File upload failed');
+        }
+      } catch (error) {
+        console.error('Error uploading file:', error);
+      }
+    }
   }
+
+  // const InnerComp = () => {
+  //   return <h1>hii</h1>
+  // }
 
   return (
     <main className={styles.main}>
+
+
+      <form onSubmit={handleSubmit}>
+        <input type='file' name='file' onChange={(e) => setFile(e.target.files[0])} />
+        <button type='submit'>upload</button>
+      </form>
       {/* <User name="Jagrati" /> */}
       {/* <h1>Event, function & state</h1> */}
       {/* <p>{name}</p> */}
