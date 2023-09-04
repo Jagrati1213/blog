@@ -20,7 +20,6 @@ export async function GET() {
 export async function POST(req, res) {
     const payload = await req.json();
     payload.color = payload.color.split(',');
-    res.setHeader('Referrer-Policy', 'strict-origin');
     await mongoose.connect(connectionSrt);
     const product = new Product(payload);
     const result = await product.save();

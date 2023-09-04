@@ -15,7 +15,11 @@ function Adduserform({ hostName }) {
     const addUser = async () => {
         let res = await fetch(`http://${hostName}/api/products`, {
             method: 'POST',
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            }
         });
         res = await res.json();
         if (res.success) {
