@@ -1,3 +1,2 @@
-const { MONGODB_URI, BASE_URL } = process.env;
-export const connectionSrt = MONGODB_URI;
-export let baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : BASE_URL;
+export const connectionSrt = process.env.MONGODB_URI;
+export let apiUrl = process.env.NODE_ENV === 'production' ? process.env.PROD_API_URL : process.env.DEV_API_URL;
