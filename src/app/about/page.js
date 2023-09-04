@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react'
 
 const getUserDetails = async () => {
-    let res = await fetch('/api/products');
+    let res = await fetch('http://localhost:3000/api/products');
     let data = await res.json();
     if (data.success) {
         return data.result;
