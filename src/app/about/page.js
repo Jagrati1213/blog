@@ -1,12 +1,10 @@
 import Delete from '@/component/Delete';
-import { headers } from 'next/headers';
+import { Host } from '@/feature/main';
 import Link from 'next/link';
 import React from 'react'
 
 const getUserDetails = async () => {
-
-    const headersList = headers();
-    const hostName = headersList.get('host'); // to get domain
+    const hostName = await Host();
     try {
         let res = await fetch(`http://${hostName}/api/products`);
         let data = await res.json();
@@ -52,7 +50,9 @@ const About = async () => {
                 </tbody>
             </table>
 
-            <Link href={'/adduser'}> Add new user</Link>
+            <Link href={'/adduser'}>
+                <button style={{ margin: '7rem 2rem' }} >Add user</button>
+            </Link>
         </div>
     )
 }
