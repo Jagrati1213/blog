@@ -1,9 +1,9 @@
 "use client";
 import React from 'react'
 
-function Delete({ id }) {
+function Delete({ id, hostname }) {
     const handleDelete = async () => {
-        let res = await fetch(`http://localhost:3000/api/products/${id}`, {
+        let res = await fetch(`http://${hostname}/api/products/${id}`, {
             method: 'DELETE'
         });
         res = await res.json();
