@@ -1,4 +1,5 @@
 "use client";
+import { baseURL } from '@/utils/dbconnection';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
@@ -23,7 +24,7 @@ const UserDetails = ({ params }) => {
 
     // get old data 
     const getUserDetails = async () => {
-        let res = await fetch(`http://localhost:3000/api/products/${id}`);
+        let res = await fetch(`${baseURL}/api/products/${id}`);
         let data = await res.json();
         if (data.success) {
             setData({
@@ -40,11 +41,11 @@ const UserDetails = ({ params }) => {
 
     useEffect(() => {
         getUserDetails();
-    }, [id])
+    }, [id, getUserDetails])
 
     // put the data in database...
     const updateUser = async () => {
-        let res = await fetch(`http://localhost:3000/api/products/${id}`, {
+        let res = await fetch(`${baseURL}/api/products/${id}`, {
             method: 'PUT',
             body: JSON.stringify(data)
         });
