@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 
 
-export async function Host() {
+export function Host() {
     const headersList = headers();
     const hostName = headersList.get('host');
     return hostName;
