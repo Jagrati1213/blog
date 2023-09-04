@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 function UpdateForm({ id, hostName }) {
+    console.log(hostName);
     const [data, setData] = useState(
         {
             name: '',
