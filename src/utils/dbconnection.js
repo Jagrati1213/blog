@@ -1,2 +1,10 @@
-const { My_USERNAME, PASSWORD } = process.env;
-export const connectionSrt = `mongodb+srv://${My_USERNAME}:${PASSWORD}@cluster0.xsvpu6w.mongodb.net/productDB?retryWrites=true&w=majority`;
+const { MONGODB_URI } = process.env;
+export const connectionSrt = MONGODB_URI;
+
+export let baseURL = '';
+
+if (process.env.NODE_ENV === 'development') {
+    baseURL = 'http://localhost:3000';
+} else {
+    baseURL = 'https://blog-exd8gqzn1-jagrati1213.vercel.app/';
+}
