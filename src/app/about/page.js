@@ -3,7 +3,7 @@ import { apiUrl } from '@/utils/dbconnection';
 import Link from 'next/link';
 import React from 'react'
 const getUserDetails = async () => {
-
+    console.log(process.env.NODE_ENV);
     try {
         let res = await fetch(apiUrl);
         let data = await res.json();
