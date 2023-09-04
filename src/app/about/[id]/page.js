@@ -1,9 +1,9 @@
 import UpdateForm from '@/component/UpdateForm';
 import { Host } from '@/feature/main';
 
-async function UserDetails({ params }) {
+function UserDetails({ params }) {
     const id = params.id;
-    const hostName = await Host();
+    const hostName = Host();
 
     return (
         <UpdateForm id={id} hostName={hostName} />
