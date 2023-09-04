@@ -1,5 +1,4 @@
 "use client";
-import { apiUrl } from '@/utils/dbconnection';
 import Link from 'next/link';
 import React, { useState } from 'react'
 
@@ -15,7 +14,7 @@ function AddUser() {
 
     // post the data in database...
     const addUser = async () => {
-        let res = await fetch(apiUrl, {
+        let res = await fetch(`http://${hostName}/api/products`, {
             method: 'POST',
             body: JSON.stringify(data)
         });

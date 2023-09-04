@@ -1,11 +1,14 @@
 import Delete from '@/component/Delete';
-import { apiUrl } from '@/utils/dbconnection';
+import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react'
+
 const getUserDetails = async () => {
-    console.log(process.env.NODE_ENV);
+
+    const headersList = headers();
+    const hostName = headersList.get('host'); // to get domain
     try {
-        let res = await fetch(apiUrl);
+        let res = await fetch(`http://${hostName}/api/products`);
         let data = await res.json();
         if (data.success) {
             return data.result;
@@ -18,6 +21,7 @@ const getUserDetails = async () => {
 }
 const About = async () => {
     let result = await getUserDetails();
+
     return (
         <div>
             <h2>userDetails page</h2>
@@ -48,7 +52,7 @@ const About = async () => {
                 </tbody>
             </table>
 
-            {/* <Link href={'/adduser'}> Add new user</Link> */}
+            <Link href={'/adduser'}> Add new user</Link>
         </div>
     )
 }
