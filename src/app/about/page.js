@@ -3,8 +3,7 @@ import { Host } from '@/feature/main';
 import Link from 'next/link';
 import React from 'react'
 
-const getUserDetails = async () => {
-    const hostName = await Host();
+const getUserDetails = async (hostName) => {
     try {
         let res = await fetch(`http://${hostName}/api/products`);
         let data = await res.json();
@@ -18,7 +17,8 @@ const getUserDetails = async () => {
     }
 }
 const About = async () => {
-    let result = await getUserDetails();
+    const hostName = Host();
+    let result = await getUserDetails(hostName);
 
     return (
         <div>
@@ -43,7 +43,7 @@ const About = async () => {
                                 <td>{item.color}</td>
                                 <td>{item.category}</td>
                                 <td><Link href={`about/${item._id}`}>Update</Link></td>
-                                <td> <Delete id={item._id} /></td>
+                                <td> <Delete id={item._id} hostname={hostName} /></td>
                             </tr>
                         })
                     }
