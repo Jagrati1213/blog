@@ -25,6 +25,7 @@ function UpdateForm({ id, hostName }) {
         try {
             let res = await fetch(`http://${hostName}/api/products/${id}`);
             let data = await res.json();
+
             if (data.success) {
                 setData({
                     name: data.result.name,
@@ -73,6 +74,7 @@ function UpdateForm({ id, hostName }) {
     return (
         <div>
             <h2>Update user</h2>
+            <p>{data}</p>
             <div>
                 <input type="text" placeholder='Enter name' name='name' value={data.name} onChange={(e) => handleChange(e)} />
 
