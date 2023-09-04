@@ -3,24 +3,24 @@ import { baseURL } from '@/utils/dbconnection';
 import Link from 'next/link';
 import React from 'react'
 
-const getUserDetails = async () => {
-    console.log("url :", baseURL);
-    console.log(process.env.NODE_ENV);
-    console.log("Fetching from URL:", `${baseURL}/api/products`)
-    try {
-        let res = await fetch(`${baseURL}/api/products`);
-        let data = await res.json();
-        if (data.success) {
-            return data.result;
-        } else {
-            return;
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
+// const getUserDetails = async () => {
+//     console.log("url :", baseURL);
+//     console.log(process.env.NODE_ENV);
+//     console.log("Fetching from URL:", `${baseURL}/api/products`)
+//     try {
+//         let res = await fetch(`${baseURL}/api/products`);
+//         let data = await res.json();
+//         if (data.success) {
+//             return data.result;
+//         } else {
+//             return;
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 const About = async () => {
-    let result = await getUserDetails();
+    // let result = await getUserDetails();
     return (
         <div>
             <h2>userDetails page</h2>
@@ -35,7 +35,7 @@ const About = async () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {
+                    {/* {
                         result.map(item => {
                             return <tr key={item.id}>
                                 <td>{item.name}</td>
@@ -47,11 +47,11 @@ const About = async () => {
                                 <td> <Delete id={item._id} /></td>
                             </tr>
                         })
-                    }
+                    } */}
                 </tbody>
             </table>
 
-            <Link href={'/adduser'}> Add new user</Link>
+            {/* <Link href={'/adduser'}> Add new user</Link> */}
         </div>
     )
 }

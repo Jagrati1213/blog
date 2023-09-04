@@ -22,55 +22,55 @@ const UserDetails = ({ params }) => {
         setData({ ...data, [key]: value });
     }
 
-    // get old data 
-    const getUserDetails = async () => {
-        try {
-            let res = await fetch(`${baseURL}/api/products/${id}`);
-            let data = await res.json();
-            if (data.success) {
-                setData({
-                    name: data.result.name,
-                    price: data.result.price,
-                    company: data.result.company,
-                    color: data.result.color,
-                    category: data.result.category,
-                })
-            } else {
-                return;
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // // get old data 
+    // const getUserDetails = async () => {
+    //     try {
+    //         let res = await fetch(`${baseURL}/api/products/${id}`);
+    //         let data = await res.json();
+    //         if (data.success) {
+    //             setData({
+    //                 name: data.result.name,
+    //                 price: data.result.price,
+    //                 company: data.result.company,
+    //                 color: data.result.color,
+    //                 category: data.result.category,
+    //             })
+    //         } else {
+    //             return;
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
-    useEffect(() => {
-        getUserDetails();
-    }, [id])
+    // useEffect(() => {
+    //     getUserDetails();
+    // }, [id])
 
-    // put the data in database...
-    const updateUser = async () => {
-        try {
-            let res = await fetch(`${baseURL}/api/products/${id}`, {
-                method: 'PUT',
-                body: JSON.stringify(data)
-            });
-            res = await res.json();
-            if (res.success) {
-                setUpdate({
-                    name: data.name,
-                    price: data.price,
-                    company: data.company,
-                    color: data.color,
-                    category: data.category,
-                })
-            }
-            else {
-                alert(res.result);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // // put the data in database...
+    // const updateUser = async () => {
+    //     try {
+    //         let res = await fetch(`${baseURL}/api/products/${id}`, {
+    //             method: 'PUT',
+    //             body: JSON.stringify(data)
+    //         });
+    //         res = await res.json();
+    //         if (res.success) {
+    //             setUpdate({
+    //                 name: data.name,
+    //                 price: data.price,
+    //                 company: data.company,
+    //                 color: data.color,
+    //                 category: data.category,
+    //             })
+    //         }
+    //         else {
+    //             alert(res.result);
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
 
     return (
@@ -88,10 +88,10 @@ const UserDetails = ({ params }) => {
                 <input type="text" placeholder='Enter color' name='color' value={data.color} onChange={(e) => handleChange(e)} />
 
 
-                <button onClick={updateUser}>update</button>
+                {/* <button onClick={updateUser}>update</button> */}
             </div>
             <div>
-                {
+                {/* {
                     update &&
                     <>
                         <h2>Update data</h2>
@@ -100,7 +100,7 @@ const UserDetails = ({ params }) => {
                         <p>{update.company}</p>
                         <p>{update.color}</p>
                         <p>{update.category}</p></>
-                }
+                } */}
 
             </div>
             <Link href={'/about'}> Back to about</Link>
