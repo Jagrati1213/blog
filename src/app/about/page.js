@@ -4,15 +4,18 @@ import Link from 'next/link';
 import React from 'react'
 
 const getUserDetails = async () => {
-
     console.log("url :", baseURL);
     console.log(process.env.NODE_ENV);
-    let res = await fetch(`${baseURL}/api/products`);
-    let data = await res.json();
-    if (data.success) {
-        return data.result;
-    } else {
-        return;
+    try {
+        let res = await fetch(`${baseURL}/api/products`);
+        let data = await res.json();
+        if (data.success) {
+            return data.result;
+        } else {
+            return;
+        }
+    } catch (error) {
+        console.log(error);
     }
 }
 const About = async () => {

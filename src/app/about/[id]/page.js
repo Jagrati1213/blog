@@ -24,18 +24,22 @@ const UserDetails = ({ params }) => {
 
     // get old data 
     const getUserDetails = async () => {
-        let res = await fetch(`${baseURL}/api/products/${id}`);
-        let data = await res.json();
-        if (data.success) {
-            setData({
-                name: data.result.name,
-                price: data.result.price,
-                company: data.result.company,
-                color: data.result.color,
-                category: data.result.category,
-            })
-        } else {
-            return;
+        try {
+            let res = await fetch(`${baseURL}/api/products/${id}`);
+            let data = await res.json();
+            if (data.success) {
+                setData({
+                    name: data.result.name,
+                    price: data.result.price,
+                    company: data.result.company,
+                    color: data.result.color,
+                    category: data.result.category,
+                })
+            } else {
+                return;
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 
@@ -45,22 +49,26 @@ const UserDetails = ({ params }) => {
 
     // put the data in database...
     const updateUser = async () => {
-        let res = await fetch(`${baseURL}/api/products/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(data)
-        });
-        res = await res.json();
-        if (res.success) {
-            setUpdate({
-                name: data.name,
-                price: data.price,
-                company: data.company,
-                color: data.color,
-                category: data.category,
-            })
-        }
-        else {
-            alert(res.result);
+        try {
+            let res = await fetch(`${baseURL}/api/products/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify(data)
+            });
+            res = await res.json();
+            if (res.success) {
+                setUpdate({
+                    name: data.name,
+                    price: data.price,
+                    company: data.company,
+                    color: data.color,
+                    category: data.category,
+                })
+            }
+            else {
+                alert(res.result);
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 
