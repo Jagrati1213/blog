@@ -45,8 +45,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-
-
+      <Link href={'/about'}>About</Link>
       <form onSubmit={handleSubmit}>
         <input type='file' name='file' onChange={(e) => setFile(e.target.files[0])} />
         <button type='submit'>upload</button>
