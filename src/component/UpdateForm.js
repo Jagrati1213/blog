@@ -3,7 +3,6 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 function UpdateForm({ id, hostName }) {
-    console.log(hostName);
     const [data, setData] = useState(
         {
             name: '',
@@ -74,7 +73,6 @@ function UpdateForm({ id, hostName }) {
     return (
         <div>
             <h2>Update user</h2>
-            <p>{data}</p>
             <div>
                 <input type="text" placeholder='Enter name' name='name' value={data.name} onChange={(e) => handleChange(e)} />
 
