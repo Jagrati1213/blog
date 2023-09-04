@@ -6,6 +6,7 @@ import React from 'react'
 const getUserDetails = async () => {
     console.log("url :", baseURL);
     console.log(process.env.NODE_ENV);
+    console.log("Fetching from URL:", `${baseURL}/api/products`)
     try {
         let res = await fetch(`${baseURL}/api/products`);
         let data = await res.json();
