@@ -1,9 +1,12 @@
 import Delete from '@/component/Delete';
+import { baseURL } from '@/utils/dbconnection';
 import Link from 'next/link';
 import React from 'react'
 
 const getUserDetails = async () => {
-    let res = await fetch('http://localhost:3000/api/products');
+
+    console.log("url :", baseURL);
+    let res = await fetch(`${baseURL}/api/products`);
     let data = await res.json();
     if (data.success) {
         return data.result;
