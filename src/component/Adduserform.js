@@ -13,7 +13,7 @@ function Adduserform({ hostName }) {
 
     // post the data in database...
     const addUser = async () => {
-        let res = await fetch(`${hostName}api/products`, {
+        let res = await fetch(`${hostName}/api/products`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
