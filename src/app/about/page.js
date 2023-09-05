@@ -37,6 +37,7 @@ const About = async () => {
                 </thead>
                 <tbody>
                     {
+                        result &&
                         result.map(item => {
                             return <tr key={item.id}>
                                 <td>{item.name}</td>
