@@ -1,12 +1,11 @@
 import UpdateForm from '@/component/UpdateForm';
-import { Host } from '@/feature/main';
+import { base_url } from '@/utils/dbconnection';
 
 function UserDetails({ params }) {
     const id = params.id;
-    const hostName = Host();
 
     return (
-        <UpdateForm id={id} hostName={hostName} />
+        <UpdateForm id={id} hostName={base_url} />
     )
 }
 export default UserDetails;

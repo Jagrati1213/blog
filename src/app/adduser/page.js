@@ -1,10 +1,9 @@
 import Adduserform from '@/component/Adduserform';
-import { Host } from '@/feature/main';
+import { base_url } from '@/utils/dbconnection';
 
 function AddUser() {
-    const hostName = Host();
     return (
-        <Adduserform hostName={hostName} />
+        <Adduserform hostName={base_url} />
     )
 }
 

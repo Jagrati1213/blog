@@ -22,7 +22,7 @@ function UpdateForm({ id, hostName }) {
     // // get old data 
     const getUserDetails = async () => {
         try {
-            let res = await fetch(`http://${hostName}/api/products/${id}`);
+            let res = await fetch(`${hostName}/api/products/${id}`);
             let data = await res.json();
 
             if (data.success) {
@@ -48,8 +48,11 @@ function UpdateForm({ id, hostName }) {
     // // put the data in database...
     const updateUser = async () => {
         try {
-            let res = await fetch(`http://${hostName}/api/products/${id}`, {
+            let res = await fetch(`${hostName}/api/products/${id}`, {
                 method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(data)
             });
             res = await res.json();

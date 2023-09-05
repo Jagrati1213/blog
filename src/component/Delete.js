@@ -3,7 +3,7 @@ import React from 'react'
 
 function Delete({ id, hostname }) {
     const handleDelete = async () => {
-        let res = await fetch(`http://${hostname}/api/products/${id}`, {
+        let res = await fetch(`${hostname}/api/products/${id}`, {
             method: 'DELETE'
         });
         res = await res.json();

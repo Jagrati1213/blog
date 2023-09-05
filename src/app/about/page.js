@@ -1,14 +1,17 @@
 import Delete from '@/component/Delete';
-import { Host } from '@/feature/main';
+import { base_url } from '@/utils/dbconnection';
 import Link from 'next/link';
 import React from 'react'
 
-const getUserDetails = async (hostName) => {
+const getUserDetails = async () => {
+
     try {
-        let res = await fetch(`api/products`);
+
+        let res = await fetch(`${base_url}/api/products`);
         let data = await res.json();
         if (data.success) {
             return data.result;
+
         } else {
             return;
         }
@@ -17,8 +20,7 @@ const getUserDetails = async (hostName) => {
     }
 }
 const About = async () => {
-    const hostName = Host();
-    let result = await getUserDetails(hostName);
+    let result = await getUserDetails();
 
     return (
         <div>
@@ -43,7 +45,7 @@ const About = async () => {
                                 <td>{item.color}</td>
                                 <td>{item.category}</td>
                                 <td><Link href={`about/${item._id}`}>Update</Link></td>
-                                <td> <Delete id={item._id} hostname={hostName} /></td>
+                                <td> <Delete id={item._id} hostname={base_url} /></td>
                             </tr>
                         })
                     }
