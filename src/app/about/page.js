@@ -5,7 +5,7 @@ import React from 'react'
 
 const getUserDetails = async (hostName) => {
     try {
-        let res = await fetch(`http://${hostName}/api/products`);
+        let res = await fetch(`api/products`);
         let data = await res.json();
         if (data.success) {
             return data.result;
