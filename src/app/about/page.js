@@ -3,23 +3,22 @@ import { base_url } from '@/utils/dbconnection';
 import Link from 'next/link';
 import React from 'react'
 
-const getUserDetails = async () => {
-
-    try {
-
-        let res = await fetch(`${base_url}/api/products`);
-        let data = await res.json();
-        if (data.success) {
-            return data.result;
-
-        } else {
-            return;
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
 const About = async () => {
+
+    const getUserDetails = async () => {
+        try {
+            let res = await fetch(`${base_url}/api/products`);
+            let data = await res.json();
+            if (data.success) {
+                return data.result;
+
+            } else {
+                return;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
     let result = await getUserDetails();
 
     return (
